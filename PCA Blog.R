@@ -356,7 +356,7 @@ var_exp %>%
     axis.text.x = ggplot2::element_text(size=10)
   )
 
-midpo <- mean(df_pca2[[3]][[1]][[5]])
+mean_hsr <- mean(df_pca2[[3]][[1]][[5]])
 
 df_pca2 %>%
   mutate(
@@ -371,7 +371,7 @@ df_pca2 %>%
         geom_vline(xintercept = 0, colour='blue', linetype='dashed') +
         geom_hline(yintercept = 0, colour='red', linetype='dashed') +
         geom_point(aes(fill=df_pca2[[3]][[1]][[5]]), shape=21) +
-        scale_fill_gradient2(low='blue', mid='green', high='red', midpoint = midpo) +
+        scale_fill_gradient2(low='blue', mid='green', high='red', midpoint = mean_hsr) +
         labs(title = "First two principal components of PCA on Training Load dataset",
              subtitle = "Colour Indicates Daily HSR, Recent Days Highlighted") +
         ggrepel::geom_label_repel(aes(
