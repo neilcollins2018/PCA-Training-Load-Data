@@ -1,7 +1,6 @@
 library(tidyverse)
 library(magrittr)
 library(ggfortify)
-library(mdatools)
 library(lubridate)
 library(broom)
 
@@ -278,7 +277,7 @@ plot(PC1,PC2, main = "Scatter plot of PCs", pch=20, col="blue", xlab = "First PC
      ylab = "Second PC")
 abline(h=0, lty=2)
 abline(v=0, lty=2)
-points(PC1[rownumb_x], PC2[rownumb_y], col="red", pch=16)
+points(PC1[rownumb_x], PC2[rownumb_y], col="red", pch=16, cex=3)
 
 ## Biplot with eigenvectors showing
 biplot(pca.model, scale=0)
@@ -288,6 +287,9 @@ points(PC1[rownumb_x], PC2[rownumb_y], col="red", pch=16)
 
 
 ###mdatools package ####
+# Restart R before continuing (ctrl/cmd + shift + f10) then run the code to create data but skip base r methods
+library(mdatools)
+
 pca.model2 <- pca(df_pca[,-c(1:2)], center = TRUE, scale = TRUE)
 
 plot(pca.model2, show.labels = T)
